@@ -7,6 +7,7 @@ Object.assign(els, {
   downloadWin: document.getElementById('downloadWin'),
   downloadMac: document.getElementById('downloadMac'),
   downloadLinux: document.getElementById('downloadLinux'),
+  versionBadge: document.getElementById('versionBadge'),
   linuxModal: document.getElementById('linuxModal'),
   closeLinuxModal: document.getElementById('closeLinuxModal'),
   linuxTabs: document.querySelectorAll('.linux-tab'),
@@ -50,15 +51,26 @@ async function initDownloads() {
 
   try {
     const cached = sessionStorage.getItem('banana-release');
-    let assets;
+    let assets, tagName;
     if (cached) {
-      assets = JSON.parse(cached);
+      const cachedData = JSON.parse(cached);
+      assets = cachedData.assets;
+      tagName = cachedData.tagName;
     } else {
       const res = await fetch(GH_API);
       if (!res.ok) throw new Error('API error');
       const data = await res.json();
       assets = data.assets;
-      sessionStorage.setItem('banana-release', JSON.stringify(assets));
+      tagName = data.tag_name;
+      sessionStorage.setItem(
+        'banana-release',
+        JSON.stringify({ assets, tagName }),
+      );
+    }
+
+    // Version badge
+    if (els.versionBadge) {
+      els.versionBadge.textContent = tagName || 'v0.x';
     }
 
     const osNames = { win: 'Windows', linux: 'Linux', mac: 'macOS' };

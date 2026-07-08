@@ -53,7 +53,9 @@
 .reveal {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
 }
 
 .reveal.visible {
@@ -135,8 +137,8 @@ body {
 }
 
 .navbar-brand-icon {
-  width: 22px;
-  height: 22px;
+  width: 32px;
+  height: 32px;
   display: block;
 }
 
@@ -168,7 +170,9 @@ body {
   background: none;
   cursor: pointer;
   font-family: inherit;
-  transition: color 0.2s ease, background 0.2s ease;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
 }
 
 .nav-link:hover {
@@ -308,7 +312,10 @@ body {
   cursor: pointer;
   text-decoration: none;
   box-shadow: 0 10px 20px var(--shadow-sm);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
   white-space: nowrap;
 }
 
@@ -352,7 +359,10 @@ body {
   font-size: 1rem;
   cursor: pointer;
   text-decoration: none;
-  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease,
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
     color 0.2s ease;
   white-space: nowrap;
 }
@@ -442,7 +452,9 @@ body {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--panel-border);
   border-radius: 16px;
-  transition: transform 0.2s ease, border-color 0.2s ease,
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
     box-shadow 0.2s ease;
 }
 
@@ -475,7 +487,10 @@ body {
   justify-content: center;
   color: var(--text-muted-bright);
   flex-shrink: 0;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .feature-card:hover .feature-icon {
@@ -522,7 +537,9 @@ body {
   border-radius: 12px;
   border: 1px solid var(--panel-border);
   box-shadow: 0 10px 30px var(--shadow-md);
-  transition: transform 0.2s ease, border-color 0.2s ease,
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
     box-shadow 0.2s ease;
 }
 
@@ -558,7 +575,9 @@ body {
   border: 1px solid var(--panel-border);
   border-radius: 16px;
   text-decoration: none;
-  transition: transform 0.2s ease, border-color 0.2s ease,
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
     box-shadow 0.2s ease;
 }
 
@@ -578,7 +597,10 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--text-muted-bright);
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .download-card:hover .download-icon {
@@ -635,8 +657,6 @@ body {
 
 .download-cta {
   margin-top: 28px;
-}
-  display: inline-flex;
 }
 
 /* ============================================================
@@ -739,7 +759,11 @@ body {
 }
 
 .e404-highlight {
-  background: linear-gradient(147deg, var(--grad-text-start) 0%, var(--grad-text-end) 82%);
+  background: linear-gradient(
+    147deg,
+    var(--grad-text-start) 0%,
+    var(--grad-text-end) 82%
+  );
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -820,7 +844,9 @@ body {
 .social-link {
   color: var(--text-muted);
   display: flex;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .social-link:hover {
@@ -1024,7 +1050,11 @@ body {
 .linux-modal .modal-title {
   font-size: 1.5rem;
   font-weight: 800;
-  background: linear-gradient(147deg, var(--grad-text-start) 0%, var(--grad-text-end) 82%);
+  background: linear-gradient(
+    147deg,
+    var(--grad-text-start) 0%,
+    var(--grad-text-end) 82%
+  );
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -1041,7 +1071,9 @@ body {
   cursor: pointer;
   padding: 4px 8px;
   border-radius: 8px;
-  transition: color 0.2s ease, background 0.2s ease;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
   font-family: inherit;
 }
 
@@ -1071,7 +1103,9 @@ body {
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
-  transition: color 0.2s, background 0.2s;
+  transition:
+    color 0.2s,
+    background 0.2s;
 }
 
 .linux-tab:hover {
@@ -1137,7 +1171,9 @@ body {
   border-radius: 6px;
   flex-shrink: 0;
   display: flex;
-  transition: color 0.2s, background 0.2s;
+  transition:
+    color 0.2s,
+    background 0.2s;
 }
 
 .code-copy:hover {
@@ -1150,6 +1186,38 @@ body {
   justify-content: center;
 }
 
-.download-card[role="button"] {
+.download-card[role='button'] {
   cursor: pointer;
+}
+
+.early-notice {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 24px auto 0;
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: rgba(255, 85, 85, 0.06);
+  border: 1px solid rgba(255, 85, 85, 0.2);
+  font-size: 0.85rem;
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+.early-notice svg {
+  color: var(--offline-red);
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+}
+
+.early-notice a {
+  color: var(--accent-purple);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.early-notice a:hover {
+  text-decoration: underline;
 }
