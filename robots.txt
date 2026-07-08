@@ -1,0 +1,5 @@
+# BananaDashboard
+User-agent: *
+Allow: /
+
+Sitemap: https://dashboard.bananabrother77.online/sitemap.xml
