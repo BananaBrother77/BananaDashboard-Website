@@ -537,10 +537,17 @@ body {
   border-radius: 12px;
   border: 1px solid var(--panel-border);
   box-shadow: 0 10px 30px var(--shadow-md);
+  cursor: pointer;
   transition:
     transform 0.2s ease,
     border-color 0.2s ease,
     box-shadow 0.2s ease;
+}
+
+.screenshot-img:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-purple);
+  box-shadow: 0 10px 25px var(--accent-bright-shadow);
 }
 
 .screenshot-label {
@@ -1220,4 +1227,50 @@ body {
 
 .early-notice a:hover {
   text-decoration: underline;
+}
+
+/* Screenshot lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--shadow-lg);
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.lightbox.show {
+  display: flex;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px var(--shadow-xl);
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: color 0.2s ease, background 0.2s ease;
+  font-family: inherit;
+  z-index: 10000;
+}
+
+.lightbox-close:hover {
+  color: var(--text-main);
+  background: var(--hover-bg);
 }

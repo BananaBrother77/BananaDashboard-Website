@@ -1,6 +1,6 @@
 // Elements
 
-Object.assign(els, {
+const downloadEls = {
   smartBtn: document.getElementById('smartDownloadBtn'),
   osLabel: document.getElementById('smartOsLabel'),
   osIcon: document.getElementById('smartOsIcon'),
@@ -8,6 +8,9 @@ Object.assign(els, {
   downloadMac: document.getElementById('downloadMac'),
   downloadLinux: document.getElementById('downloadLinux'),
   versionBadge: document.getElementById('versionBadge'),
+};
+
+const linuxModalEls = {
   linuxModal: document.getElementById('linuxModal'),
   closeLinuxModal: document.getElementById('closeLinuxModal'),
   linuxTabs: document.querySelectorAll('.linux-tab'),
@@ -15,7 +18,14 @@ Object.assign(els, {
   linuxDownloadAppImage: document.getElementById('linuxDownloadAppImage'),
   linuxDownloadDeb: document.getElementById('linuxDownloadDeb'),
   linuxDownloadPacman: document.getElementById('linuxDownloadPacman'),
-});
+};
+
+const lightboxEls = {
+  lightbox: document.getElementById('screenshotLightbox'),
+  lightboxImg: document.querySelector('.lightbox-img'),
+  closeBtn: document.querySelector('.lightbox-close'),
+  screenshots: document.querySelectorAll('.screenshot-img'),
+};
 
 // SVG's
 const svg = {
@@ -69,8 +79,8 @@ async function initDownloads() {
     }
 
     // Version badge
-    if (els.versionBadge) {
-      els.versionBadge.textContent = tagName || 'v0.x';
+    if (downloadEls.versionBadge) {
+      downloadEls.versionBadge.textContent = tagName || 'v0.x';
     }
 
     const osNames = { win: 'Windows', linux: 'Linux', mac: 'macOS' };
@@ -85,27 +95,27 @@ async function initDownloads() {
     const pattern = os && assetMap[os];
     const asset = pattern && matchAsset(assets, pattern);
     if (os === 'linux') {
-      if (els.smartBtn) {
-        els.smartBtn.href = '#';
-        els.smartBtn.dataset.os = 'linux';
+      if (downloadEls.smartBtn) {
+        downloadEls.smartBtn.href = '#';
+        downloadEls.smartBtn.dataset.os = 'linux';
       }
-      if (els.osLabel) {
-        els.osLabel.textContent = 'Linux';
+      if (downloadEls.osLabel) {
+        downloadEls.osLabel.textContent = 'Linux';
         setDownloadIcon('linux');
       }
-    } else if (asset && els.smartBtn && els.osLabel) {
-      els.smartBtn.href = asset.browser_download_url;
-      els.osLabel.textContent = osName;
+    } else if (asset && downloadEls.smartBtn && downloadEls.osLabel) {
+      downloadEls.smartBtn.href = asset.browser_download_url;
+      downloadEls.osLabel.textContent = osName;
       setDownloadIcon(os);
-    } else if (els.osLabel) {
-      els.osLabel.textContent = osName || 'your OS';
+    } else if (downloadEls.osLabel) {
+      downloadEls.osLabel.textContent = osName || 'your OS';
       setDownloadIcon(os);
     }
 
     // Platform cards
     const cards = {
-      win: { el: els.downloadWin, pattern: /\.exe$/ },
-      mac: { el: els.downloadMac, pattern: /\.dmg$/ },
+      win: { el: downloadEls.downloadWin, pattern: /\.exe$/ },
+      mac: { el: downloadEls.downloadMac, pattern: /\.dmg$/ },
     };
 
     for (const [, card] of Object.entries(cards)) {
@@ -122,9 +132,9 @@ async function initDownloads() {
       pacman: matchAsset(assets, /\.pacman$/),
     };
     const linuxLinks = {
-      appimage: els.linuxDownloadAppImage,
-      deb: els.linuxDownloadDeb,
-      pacman: els.linuxDownloadPacman,
+      appimage: linuxModalEls.linuxDownloadAppImage,
+      deb: linuxModalEls.linuxDownloadDeb,
+      pacman: linuxModalEls.linuxDownloadPacman,
     };
 
     if (linuxLinks.appimage || linuxLinks.deb || linuxLinks.pacman) {
@@ -135,24 +145,26 @@ async function initDownloads() {
       }
     }
   } catch {
-    if (els.osLabel) els.osLabel.textContent = 'your OS';
+    if (downloadEls.osLabel) downloadEls.osLabel.textContent = 'your OS';
   }
 }
 
 function setDownloadIcon(os) {
-  els.osIcon.innerHTML = os ? svg[os] : '<i data-lucide="download"></i>';
+  downloadEls.osIcon.innerHTML = os
+    ? svg[os]
+    : '<i data-lucide="download"></i>';
 }
 
 initDownloads();
 
 // Linux install modal
 (function () {
-  const modal = els.linuxModal;
-  const closeBtn = els.closeLinuxModal;
-  const linuxCard = els.downloadLinux;
-  const smartBtn = els.smartBtn;
-  const tabs = els.linuxTabs;
-  const panels = els.linuxPanels;
+  const modal = linuxModalEls.linuxModal;
+  const closeBtn = linuxModalEls.closeLinuxModal;
+  const linuxCard = downloadEls.downloadLinux;
+  const smartBtn = downloadEls.smartBtn;
+  const tabs = linuxModalEls.linuxTabs;
+  const panels = linuxModalEls.linuxPanels;
 
   if (!modal) return;
 
@@ -207,5 +219,34 @@ initDownloads();
         }, 2000);
       });
     });
+  });
+})();
+
+// Screenshot lightbox
+(function () {
+  if (!lightboxEls.lightbox) return;
+
+  lightboxEls.screenshots.forEach((img) => {
+    img.addEventListener('click', () => {
+      lightboxEls.lightboxImg.src = img.src;
+      lightboxEls.lightboxImg.alt = img.alt;
+      lightboxEls.lightbox.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function close() {
+    lightboxEls.lightbox.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+
+  lightboxEls.closeBtn.addEventListener('click', close);
+  lightboxEls.lightbox.addEventListener('click', (e) => {
+    if (e.target === lightboxEls.lightbox) close();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightboxEls.lightbox.classList.contains('show'))
+      close();
   });
 })();
