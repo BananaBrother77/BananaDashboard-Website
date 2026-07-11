@@ -634,23 +634,6 @@ body {
   letter-spacing: 0.5px;
 }
 
-.download-status {
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  background: rgba(80, 250, 123, 0.15);
-  color: var(--online-green);
-  border: 1px solid rgba(80, 250, 123, 0.3);
-}
-
-.download-status.status-pending {
-  background: rgba(241, 250, 140, 0.15);
-  color: var(--warn-yellow);
-  border: 1px solid rgba(241, 250, 140, 0.3);
-}
 
 .download-hero-btn {
   margin-bottom: 28px;
@@ -1203,9 +1186,9 @@ body {
   justify-content: center;
   gap: 8px;
   margin: 24px auto 0;
-  padding: 12px 20px;
-  border-radius: 12px;
-  background: rgba(255, 85, 85, 0.06);
+  padding: 8px 16px;
+  border-radius: 10px;
+  background: rgba(255, 85, 85, 0.163);
   border: 1px solid rgba(255, 85, 85, 0.2);
   font-size: 0.85rem;
   color: var(--text-main);
