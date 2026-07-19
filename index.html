@@ -4,10 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BVCM3JC9JQ"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-BVCM3JC9JQ"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag() {
+        dataLayer.push(arguments);
+      }
       gtag('js', new Date());
       gtag('config', 'G-BVCM3JC9JQ');
     </script>
@@ -25,7 +30,10 @@
       property="og:url"
       content="https://dashboard.bananabrother77.online/"
     />
-    <meta property="og:image" content="https://dashboard.bananabrother77.online/assets/banana-icon.svg" />
+    <meta
+      property="og:image"
+      content="https://dashboard.bananabrother77.online/assets/banana-icon.svg"
+    />
     <meta name="theme-color" content="#7c58cc" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="BananaDashboard | BananaBrother77" />
@@ -33,7 +41,10 @@
       name="twitter:description"
       content="A cross-platform desktop utility with system overview, live resources, file manager, and more."
     />
-    <meta name="twitter:image" content="https://dashboard.bananabrother77.online/assets/banana-icon.svg" />
+    <meta
+      name="twitter:image"
+      content="https://dashboard.bananabrother77.online/assets/banana-icon.svg"
+    />
     <link
       rel="canonical"
       href="https://bananadashboard.bananabrother77.online/"
@@ -111,13 +122,10 @@
             Learn More
           </a>
         </div>
-        <div class="hero-badges">
-          <span class="badge badge-accent" id="versionBadge">Loading...</span>
-          <span class="badge">Electron</span>
-          <span class="badge badge-accent">Open Source</span>
-          <span class="badge">Cross-Platform</span>
-          <span class="badge badge-accent">FOSS</span>
-        </div>
+        <p class="hero-stats reveal">
+          <span id="statVersion">-</span> ·
+          <span id="statDownloads">-</span> downloads · Win / Linux / macOS
+        </p>
       </section>
 
       <!-- ============================================================
@@ -417,8 +425,14 @@
         </div>
         <div class="early-notice">
           <i data-lucide="info" width="18" height="18"></i>
-          <span>Early release! Expect bugs and missing features.
-            <a href="https://bananabrother77.online/feedback" target="_blank" rel="noopener noreferrer">Feedback</a>
+          <span
+            >Early release! Expect bugs and missing features.
+            <a
+              href="https://bananabrother77.online/feedback"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Feedback</a
+            >
           </span>
         </div>
       </section>
@@ -553,27 +567,43 @@
 
           <div class="linux-panel" data-linux-panel="pacman">
             <h3 class="linux-panel-title">Arch Linux</h3>
-            <p class="linux-panel-desc">Use this command to install it:</p>
+            <p class="linux-panel-desc">Install from the AUR (recommended):</p>
             <div class="code-box">
-              <code>sudo pacman -U BananaDashboard-*.pacman</code>
+              <code>yay -S bananadashboard-bin</code>
               <button
                 class="code-copy"
-                data-copy="sudo pacman -U BananaDashboard-*.pacman"
+                data-copy="yay -S bananadashboard-bin"
                 title="Copy command"
               >
                 <i data-lucide="copy" width="16" height="16"></i>
               </button>
             </div>
-            <a
-              href="https://github.com/BananaBrother77/BananaDashboard/releases"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-primary linux-download-link"
-              id="linuxDownloadPacman"
-            >
-              <i data-lucide="download" width="20" height="20"></i>
-              Download .pacman
-            </a>
+            <details class="linux-manual">
+              <summary>Manual install</summary>
+              <p class="linux-panel-desc">
+                Download and install the package manually:
+              </p>
+              <div class="code-box">
+                <code>sudo pacman -U BananaDashboard-*.pacman</code>
+                <button
+                  class="code-copy"
+                  data-copy="sudo pacman -U BananaDashboard-*.pacman"
+                  title="Copy command"
+                >
+                  <i data-lucide="copy" width="16" height="16"></i>
+                </button>
+              </div>
+              <a
+                href="https://github.com/BananaBrother77/BananaDashboard/releases"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary linux-download-link"
+                id="linuxDownloadPacman"
+              >
+                <i data-lucide="download" width="20" height="20"></i>
+                Download .pacman
+              </a>
+            </details>
           </div>
         </div>
       </div>
