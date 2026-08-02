@@ -119,14 +119,21 @@ async function initDownloads() {
 
       if (downloadEls.osLabel) {
         downloadEls.osLabel.textContent = 'Linux';
+
         setDownloadIcon('linux');
       }
     } else if (asset && downloadEls.smartBtn && downloadEls.osLabel) {
       downloadEls.smartBtn.href = asset.browser_download_url;
       downloadEls.osLabel.textContent = osName;
+
       setDownloadIcon(os);
     } else if (downloadEls.osLabel) {
-      downloadEls.osLabel.textContent = osName || 'your OS';
+      downloadEls.osLabel.textContent =
+        osName ||
+        (window.getTranslation
+          ? window.getTranslation('download_your_os')
+          : 'your OS');
+
       setDownloadIcon(os);
     }
 
@@ -162,7 +169,10 @@ async function initDownloads() {
       }
     }
   } catch {
-    if (downloadEls.osLabel) downloadEls.osLabel.textContent = 'your OS';
+    if (downloadEls.osLabel)
+      downloadEls.osLabel.textContent = window.getTranslation
+        ? window.getTranslation('download_your_os')
+        : 'your OS';
   }
 }
 
