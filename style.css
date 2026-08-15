@@ -1190,72 +1190,70 @@ body {
   text-align: left;
 }
 
-.custom-checkbox {
+.setting-row {
   display: flex;
   align-items: center;
-  position: relative;
-  padding-left: 35px;
-  margin-top: 16px;
-  margin-left: 4px;
-  cursor: pointer;
-  font-size: 15px;
-  user-select: none;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.setting-row-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.setting-row-info svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--text-muted);
+}
+
+.setting-row-title {
+  font-size: 0.95rem;
+  font-weight: 600;
   color: var(--text-main);
 }
 
-.custom-checkbox input {
-  position: absolute;
-  opacity: 0;
+.switch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: var(--panel-border);
   cursor: pointer;
-  height: 0;
-  width: 0;
+  transition: background 0.2s ease;
 }
 
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 20px;
-  width: 20px;
-  background-color: var(--input-bg);
-  border: 1px solid var(--border-light);
-  border-radius: 6px;
-  transition: all 0.2s ease;
-}
-
-.custom-checkbox:hover input ~ .checkmark {
-  border-color: var(--accent-purple);
-}
-
-.custom-checkbox input:checked ~ .checkmark {
-  background-color: var(--text-muted);
-  border-color: var(--text-muted-bright);
-}
-
-.checkmark::after {
+.switch::after {
   content: '';
   position: absolute;
-  display: none;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
 }
 
-.custom-checkbox input:checked ~ .checkmark::after {
-  display: block;
+.switch:hover::after {
+  background: var(--text-muted-bright);
 }
 
-.custom-checkbox .checkmark::after {
-  left: 6px;
-  top: 2.5px;
-  width: 5px;
-  height: 9px;
-  border: solid var(--text-main);
-  border-width: 0 3px 3px 0;
-  transform: rotate(45deg);
+.switch.is-on {
+  background: var(--accent-purple);
 }
 
-.sync-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+.switch.is-on::after {
+  transform: translateX(20px);
+  background: var(--text-main);
 }
 
 .hint-icon {

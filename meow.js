@@ -39,6 +39,8 @@ const svg = {
 };
 const GH_RELEASES =
   'https://api.github.com/repos/BananaBrother77/BananaDashboard/releases/latest';
+const GH_ALL_RELEASES =
+  'https://api.github.com/repos/BananaBrother77/BananaDashboard/releases?per_page=100';
 
 function getOS() {
   const ua = navigator.userAgent;
@@ -60,15 +62,38 @@ function formatNum(n) {
   return String(n);
 }
 
-async function initStats(assets, tagName) {
-  const totalDownloads = assets.reduce(
-    (sum, a) => sum + (a.download_count || 0),
-    0,
-  );
-
+async function initStats(tagName) {
   if (statEls.version) statEls.version.textContent = tagName || '-';
-  if (statEls.downloads)
-    statEls.downloads.textContent = formatNum(totalDownloads) || '-';
+
+  try {
+    const cached = sessionStorage.getItem('banana-total-downloads');
+    let totalDownloads;
+
+    if (cached) {
+      totalDownloads = JSON.parse(cached).total;
+    } else {
+      const res = await fetch(GH_ALL_RELEASES);
+      if (!res.ok) throw new Error('API error');
+
+      const releases = await res.json();
+      totalDownloads = releases.reduce(
+        (sum, r) =>
+          sum +
+          r.assets.reduce((s, a) => s + (a.download_count || 0), 0),
+        0,
+      );
+
+      sessionStorage.setItem(
+        'banana-total-downloads',
+        JSON.stringify({ total: totalDownloads }),
+      );
+    }
+
+    if (statEls.downloads)
+      statEls.downloads.textContent = formatNum(totalDownloads) || '-';
+  } catch {
+    // leave the stat as-is on API failure
+  }
 }
 
 async function initDownloads() {
@@ -97,7 +122,7 @@ async function initDownloads() {
       );
     }
 
-    initStats(assets, tagName);
+    initStats(tagName);
 
     const osNames = { win: 'Windows', linux: 'Linux', mac: 'macOS' };
     const osName = osNames[os] || null;

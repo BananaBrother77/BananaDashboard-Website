@@ -41,13 +41,13 @@ const translations = {
       'Browse, upload, and manage files directly from the dashboard. SFTP support coming in a future update.',
     feat_stats_name: 'Website Statistics',
     feat_stats_desc:
-      'Analytics and visitor data from your BananaBrother77 websites. Tab is ready and awaiting implementation.',
+      'Quick access to your Google Analytics dashboard right from the app.',
     feat_network_name: 'Network',
     feat_network_desc:
-      'View network interfaces, IP addresses, active connections, and usage statistics. Coming in a future update.',
+      'View network interfaces, IP addresses, active connections, and usage statistics.',
     feat_battery_name: 'Battery',
     feat_battery_desc:
-      'Monitor battery status, charge level, estimated time, and power usage. Coming in a future update.',
+      'Monitor battery status, charge level, estimated time, and power usage.',
     screenshots_title: 'Screenshots',
     screenshots_subtitle: 'See BananaDashboard in action.',
     ss_overview: 'Overview Tab',
@@ -58,6 +58,7 @@ const translations = {
       'BananaDashboard is available for Windows, Linux, and macOS. Grab the latest release for your platform.',
     download_for: 'Download for',
     download_your_os: 'your OS',
+    total_downloads: 'total downloads',
     download_all: 'All Releases on GitHub',
     early_notice: 'Early release! Expect bugs and missing features.',
     linux_title: 'Install on Linux',
@@ -90,8 +91,7 @@ const translations = {
     settings_theme_title: 'Theme',
     settings_lang_title: 'Language',
     settings_privacy_title: 'Privacy',
-    privacy_on: 'Analytics: On',
-    privacy_off: 'Analytics: Off',
+    privacy_label: 'Analytics',
     settings_sync_theme: 'Sync theme across sites',
     settings_sync_theme_hint:
       'When enabled, your theme preference is shared across all BananaBrother77 websites via a cookie.',
@@ -150,13 +150,13 @@ const translations = {
       'Dateien direkt aus dem Dashboard durchsuchen, hochladen und verwalten. SFTP-Unterstützung kommt in einem zukünftigen Update.',
     feat_stats_name: 'Webseiten-Statistiken',
     feat_stats_desc:
-      'Analysen und Besucherdaten deiner BananaBrother77-Webseiten. Tab ist fertig und wartet auf die Implementierung.',
+      'Schneller Zugriff auf dein Google-Analytics-Dashboard direkt aus der App.',
     feat_network_name: 'Netzwerk',
     feat_network_desc:
-      'Netzwerkschnittstellen, IP-Adressen, aktive Verbindungen und Nutzungsstatistiken anzeigen. Kommt in einem zukünftigen Update.',
+      'Netzwerkschnittstellen, IP-Adressen, aktive Verbindungen und Nutzungsstatistiken anzeigen.',
     feat_battery_name: 'Akku',
     feat_battery_desc:
-      'Akku-Status, Ladestand, geschätzte Restzeit und Stromverbrauch überwachen. Kommt in einem zukünftigen Update.',
+      'Akku-Status, Ladestand, geschätzte Restzeit und Stromverbrauch überwachen.',
     screenshots_title: 'Screenshots',
     screenshots_subtitle: 'Sieh BananaDashboard in Aktion.',
     ss_overview: 'Übersicht-Tab',
@@ -167,6 +167,7 @@ const translations = {
       'BananaDashboard ist für Windows, Linux und macOS verfügbar. Hol dir die neueste Version für deine Plattform.',
     download_for: 'Download für',
     download_your_os: 'dein System',
+    total_downloads: 'Downloads insgesamt',
     download_all: 'Alle Releases auf GitHub',
     early_notice: 'Frühe Version! Rechne mit Fehlern und fehlenden Funktionen.',
     linux_title: 'Linux-Installation',
@@ -200,8 +201,7 @@ const translations = {
     settings_theme_title: 'Erscheinungsbild',
     settings_lang_title: 'Sprache',
     settings_privacy_title: 'Datenschutz',
-    privacy_on: 'Analytics: An',
-    privacy_off: 'Analytics: Aus',
+    privacy_label: 'Analysen',
     settings_sync_theme: 'Theme seitenübergreifend synchronisieren',
     settings_sync_theme_hint:
       'Wenn aktiviert, wird deine Theme-Auswahl auf allen BananaBrother77-Webseiten per Cookie geteilt.',

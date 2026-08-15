@@ -229,19 +229,26 @@
             >
               Privacy
             </h3>
-            <button class="lang-btn" id="privacyToggleBtn">
-              <i data-lucide="shield" width="20" height="20"></i>
-              <span class="lang-name" data-i18n="privacy_off"
-                >Analytics: Off</span
-              >
-            </button>
+            <div class="setting-row">
+              <div class="setting-row-info">
+                <i data-lucide="shield" width="18" height="18"></i>
+                <span class="setting-row-title" data-i18n="privacy_label"
+                  >Analytics</span
+                >
+              </div>
+              <button
+                class="switch is-on"
+                id="privacyToggleBtn"
+                role="switch"
+                aria-checked="true"
+              ></button>
+            </div>
           </div>
           <div class="settings-section">
-            <label class="custom-checkbox sync-checkbox">
-              <input type="checkbox" id="syncThemeCheckbox" />
-              <span class="checkmark"></span>
-              <span class="sync-label">
-                <span data-i18n="settings_sync_theme"
+            <div class="setting-row">
+              <div class="setting-row-info">
+                <i data-lucide="refresh-cw" width="18" height="18"></i>
+                <span class="setting-row-title" data-i18n="settings_sync_theme"
                   >Sync theme across sites</span
                 >
                 <span class="hint-icon" tabindex="0">
@@ -251,8 +258,14 @@
                     BananaBrother77 websites via a cookie.</span
                   >
                 </span>
-              </span>
-            </label>
+              </div>
+              <button
+                class="switch is-on"
+                id="syncThemeSwitch"
+                role="switch"
+                aria-checked="true"
+              ></button>
+            </div>
           </div>
         </div>
       </div>
